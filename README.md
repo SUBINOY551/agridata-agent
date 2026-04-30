@@ -28,8 +28,8 @@ Designed to work smoothly on **servers and remote machines (no GUI required)**.
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/SUBINOY551/agri-vision-toolkit.git
-cd agri-vision-toolkit
+git clone https://github.com/SUBINOY551/cv-annotation-toolkit.git
+cd cv-annotation-toolkit
 pip3 install -r requirements.txt
 
 ###Currently working on data-centric weed detection for Indian agriculture using MH-Weed16 and a self-collected jute-field weed dataset from West Bengal.
