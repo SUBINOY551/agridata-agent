@@ -1,2 +1,0 @@
-[console_scripts]
-agridata = agridata_agent.cli:app
