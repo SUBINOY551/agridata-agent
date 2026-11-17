@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agridata-agent"
+version = "0.1.0"
+description = "Autonomous data-engineering and visual-QA agent for multi-class agricultural object detection datasets."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=2.0.0",
+    "opencv-python-headless>=4.11.0",
+    "pillow>=11.0.0",
+    "pydantic>=2.12.0",
+    "typer>=0.15.0",
+    "rich>=13.9.0",
+    "openai>=1.55.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+gpu = [
+    "torch>=2.5.0",
+    "torchvision>=0.20.0",
+    "timm>=1.0.0",
+]
+dev = [
+    "pytest>=8.3.0",
+    "ruff>=0.8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+agridata = "agridata_agent.cli:app"

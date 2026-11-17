@@ -208,3 +208,14 @@ __marimo__/
 # Project specific
 boxed_outputs/
 
+
+# AgriData-Agent local artifacts & datasets
+.env
+data/
+datasets/
+MH-Weed16/
+*.pt
+*.pth
+*.onnx
+audit_report.md
+splits/
