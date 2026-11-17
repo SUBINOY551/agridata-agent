@@ -45,3 +45,8 @@ class SplitSummary(BaseModel):
     val_images: int
     test_images: int
     class_distribution_by_split: Dict[str, Dict[str, int]]
+
+
+class DuplicateCluster(BaseModel):
+    anchor_image: str
+    similar_images: List[Tuple[str, float]]
