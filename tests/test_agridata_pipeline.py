@@ -56,3 +56,16 @@ def test_end_to_end_offline_agent_workflow(tmp_path: Path):
     markdown = run_agent(dataset_dir=str(ds_dir), output_dir=str(out_dir), offline=True)
     assert "AgriData-Agent Engineering Audit Report" in markdown
     assert (out_dir / "qa_contact_sheet.jpg").exists()
+
+
+def test_gpu_dedup_clusters_identical_images(tmp_path: Path):
+    from agridata_agent.tools.gpu_dedup import find_near_duplicates_gpu
+    ds_dir = tmp_path / "dup_test"
+    ds_dir.mkdir()
+    img = np.full((224, 224, 3), (40, 160, 60), dtype=np.uint8)
+    cv2.imwrite(str(ds_dir / "frame_1.jpg"), img)
+    cv2.imwrite(str(ds_dir / "frame_2.jpg"), img)
+
+    clusters = find_near_duplicates_gpu(str(ds_dir), similarity_threshold=0.99, pretrained=False)
+    assert len(clusters) == 1
+    assert len(clusters[0].similar_images) == 1
